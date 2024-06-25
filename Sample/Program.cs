@@ -1,39 +1,49 @@
-﻿using ClearMapperLibrary;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace asdfasdf
+namespace ClearMapperLibrary.Sample
 {
     internal class Program
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Console.WriteLine($"Welcome to learn about {nameof(ClearMapper)} library :)");
 
-            var mapper = new ClearMapperLibrary.ClearMapper(option =>
+            // configure without injection (only for test,best practice is injection from IOC)
+            var mapper = new ClearMapper(option =>
             {
-                option.AddConfiguration<FirstClass, SeccondClass>(i => new SeccondClass() { Id = i.Id });
+                option.AddConfiguration<FirstClass, SecondClass>(i => new SecondClass()
+                {
+                    SecondClassID = i.FistClassID,
+                    FullName = i.Title,
+                });
 
-                option.AddConfiguration<FirstClass, SeccondClass>(i => new SeccondClass() { Id = i.Id });
+                option.AddConfiguration<FirstClass, ThirdClass>(i => new ThirdClass()
+                {
+                    ThirdClassID = i.FistClassID,
+                    Name = i.Title,
+                });
 
-                option.AddConfiguration<SeccondClass, ThirdClass>(i => new ThirdClass() { Id = i.Id });
-
-                option.AddConfiguration<FirstClass, ThirdClass>(i => new ThirdClass() { Id = i.Id });
+                option.AddConfiguration<SecondClass, ThirdClass>(i => new ThirdClass()
+                {
+                    ThirdClassID = i.SecondClassID,
+                    Name = i.FullName,
+                });
             });
 
 
+            var firstClass = new FirstClass() { FistClassID = 10 };
+            List<FirstClass> listOfFistClass = new List<FirstClass>() { firstClass };
 
-            // mapper.HealthCheck();
+            //Map List To Another List
+            var listOfSecondClass = mapper.Map<FirstClass, SecondClass>(listOfFistClass).ToList();
 
-            var fc = new FirstClass() { Id = 10 };
-            List<FirstClass> source = new List<FirstClass>() { fc };
+            //Map List To Another List
+            var listOfThirdClass = mapper.Map<FirstClass, ThirdClass>(listOfFistClass).ToList();
 
-            var r = mapper.Map<FirstClass, SeccondClass>(source).ToList();
-
-            var rd = mapper.Map<FirstClass, ThirdClass>(source).ToList();
-
-            var rr = mapper.Map<FirstClass, SeccondClass>(fc);
+            //Map single class to another single class
+            var secondClass = mapper.Map<FirstClass, SecondClass>(firstClass);
 
             Console.ReadLine();
 
@@ -41,20 +51,20 @@ namespace asdfasdf
     }
 }
 
-
-
-
 public class FirstClass
 {
-    public int Id { get; set; }
+    public int FistClassID { get; set; }
+    public string Title { get; set; }
 }
 
-public class SeccondClass
+public class SecondClass
 {
-    public int Id { get; set; }
+    public int SecondClassID { get; set; }
+    public string FullName { get; set; }
 }
 
 public class ThirdClass
 {
-    public int Id { get; set; }
+    public int ThirdClassID { get; set; }
+    public string Name { get; set; }
 }
