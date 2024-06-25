@@ -11,7 +11,7 @@ ClearMapper is a package for map in c#.
 ## how to use?
 
 step 1:
-crete two classes with blow names.
+create two classes with below names.
 FirstClass
 SecondClass
 ```C#
@@ -29,7 +29,7 @@ public class SecondClass
 ```
 
 step 2:
-install 'ClearMapper' from NUGET.
+install 'ClearMapper' package from NUGET.
 
 step 3:
 create Profile class For configure of map for ClearMapper
