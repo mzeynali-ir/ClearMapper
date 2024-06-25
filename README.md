@@ -21,6 +21,9 @@ public class SecondClass
 ```
 
 step 2:
+install 'ClearMapper' from NUGET.
+
+step 3:
 create Profile class For configure of map for ClearMapper
 ```C#
 
@@ -46,7 +49,7 @@ public class Profile : ClearMapperProfile
 ```
 
 
-step 2:
+step 4:
 create insatance of CLearMapper of inject it from IOC.
 and call Map for map my class to another class.
 ```C#
@@ -71,7 +74,17 @@ and call Map for map my class to another class.
 
 ```
 
-step 4:
+step 5:
 SMILE :)
 
 bye
+
+how to inject in program.cs:
+install 'ClearMapper.DependencyInjection' from NUGET.
+and write below code in program.cs
+```c#
+
+builder.Services.UseClearMapper()
+
+```
+
