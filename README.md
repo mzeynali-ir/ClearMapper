@@ -53,24 +53,25 @@ step 4:
 create insatance of CLearMapper of inject it from IOC.
 and call Map for map my class to another class.
 ```C#
-            
-            var mapper = new ClearMapper();
 
-            //define some objection for mapping process
-            var firstClass = new FirstClass() {
-                 FistClassID = 10
-            };
-            var listOfFistClass = new List<FirstClass>();
-            listOfFistClass.Add(firstClass);
+var mapper = new ClearMapper();
 
-            //map list of FirstClass to list of SecondClass
-            var listOfSecondClass = mapper.Map<FirstClass, SecondClass>(listOfFistClass);
+//define some objection for mapping process
+var firstClass = new FirstClass()
+{
+    FistClassID = 10
+};
+var listOfFistClass = new List<FirstClass>();
+listOfFistClass.Add(firstClass);
 
-            //map list of FirstClass to list of ThirdClass
-            var listOfThirdClass = mapper.Map<FirstClass, ThirdClass>(listOfFistClass);
+        //map list of FirstClass to list of SecondClass
+        var listOfSecondClass = mapper.Map<FirstClass, SecondClass>(listOfFistClass);
 
-            //Map single of FirstClass to another single of SecondClass
-            var secondClass = mapper.Map<FirstClass, SecondClass>(firstClass);
+//map list of FirstClass to list of ThirdClass
+var listOfThirdClass = mapper.Map<FirstClass, ThirdClass>(listOfFistClass);
+
+//Map single of FirstClass to another single of SecondClass
+var secondClass = mapper.Map<FirstClass, SecondClass>(firstClass);
 
 ```
 
@@ -87,12 +88,13 @@ builder.Services.UseClearMapper()
 and inject IClearMapper in your classes like this:
 ```C#
 
-public class MyClass{
-public MyClass(IClearMapper mapper){
+public class MyClass
+{
+    public MyClass(IClearMapper mapper)
+    {
 
+    }
 }
-}
-
 ```
 
 dont forget to share ClearMapper with your friends.
