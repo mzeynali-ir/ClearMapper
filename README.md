@@ -1,7 +1,7 @@
 # ClearMapper :)
 ClearMapper is a package for map in c#.
 <br />
-# feature:
+# features:
 
 1. map from all of IEnumerable typr to another IEnumerable type with better performance and spped.
 2. map from IQueryable type to another IQueryable type with out roudtrip for database.
@@ -37,7 +37,7 @@ create Profile class For configure of map for ClearMapper
 
 public class Profile : ClearMapperProfile
 {
-    public Profile1(ClearMapperOption option) : base(option)
+    public Profile(ClearMapperOption option) : base(option)
     {
 
         option.AddConfiguration<FirstClass, ThirdClass>(i => new ThirdClass()
