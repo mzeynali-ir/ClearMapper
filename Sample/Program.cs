@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ClearMapperLibrary;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -11,26 +12,31 @@ namespace ClearMapperLibrary.Sample
             Console.WriteLine($"Welcome to learn about {nameof(ClearMapper)} library :)");
 
             // configure without injection (only for test,best practice is injection from IOC)
-            var mapper = new ClearMapper(option =>
-            {
-                option.AddConfiguration<FirstClass, SecondClass>(i => new SecondClass()
-                {
-                    SecondClassID = i.FistClassID,
-                    FullName = i.Title,
-                });
+            //var mapper = new ClearMapper(option =>
+            //{
+            //    option.AddConfiguration<FirstClass, SecondClass>(i => new SecondClass()
+            //    {
+            //        SecondClassID = i.FistClassID,
+            //        FullName = i.Title,
+            //    });
 
-                option.AddConfiguration<FirstClass, ThirdClass>(i => new ThirdClass()
-                {
-                    ThirdClassID = i.FistClassID,
-                    Name = i.Title,
-                });
+            //    option.AddConfiguration<FirstClass, ThirdClass>(i => new ThirdClass()
+            //    {
+            //        ThirdClassID = i.FistClassID,
+            //        Name = i.Title,
+            //    });
 
-                option.AddConfiguration<SecondClass, ThirdClass>(i => new ThirdClass()
-                {
-                    ThirdClassID = i.SecondClassID,
-                    Name = i.FullName,
-                });
-            });
+            //    option.AddConfiguration<SecondClass, ThirdClass>(i => new ThirdClass()
+            //    {
+            //        ThirdClassID = i.SecondClassID,
+            //        Name = i.FullName,
+            //    });
+            //});
+
+            //load from profiles
+            var mapper = new ClearMapper();
+
+
 
 
             var firstClass = new FirstClass() { FistClassID = 10 };
@@ -48,6 +54,34 @@ namespace ClearMapperLibrary.Sample
             Console.ReadLine();
 
         }
+    }
+}
+
+public class Profile1 : ClearMapperProfile
+{
+    public Profile1(ClearMapperOption option) : base(option)
+    {
+
+        option.AddConfiguration<FirstClass, ThirdClass>(i => new ThirdClass()
+        {
+            ThirdClassID = i.FistClassID,
+            Name = i.Title,
+        });
+
+
+    }
+}
+
+public class Profile2 : ClearMapperProfile
+{
+    public Profile2(ClearMapperOption option) : base(option)
+    {
+        option.AddConfiguration<FirstClass, SecondClass>(i => new SecondClass()
+        {
+            SecondClassID = i.FistClassID,
+            FullName = i.Title,
+        });
+
     }
 }
 

@@ -4,8 +4,7 @@ using System.Linq;
 
 namespace ClearMapperLibrary
 {
-
-    public sealed partial class ClearMapper: IClearMapper
+    public sealed partial class ClearMapper : IClearMapper
     {
 
         private readonly ClearMapperOption _option = new ClearMapperOption();
@@ -14,6 +13,22 @@ namespace ClearMapperLibrary
         public ClearMapper(Action<ClearMapperOption> op)
         {
             op.Invoke(_option);
+            configurations = _option.getConfigurations();
+        }
+
+        /// <summary>
+        /// scan from assembly
+        /// </summary>
+        public ClearMapper()
+        {
+
+            var profiles = AppDomain.CurrentDomain.GetAssemblies().SelectMany(a => a.GetTypes()).Where(t => t.IsSubclassOf(typeof(ClearMapperProfile)));
+
+            foreach (Type t in profiles)
+            {
+                var instance = (ClearMapperProfile)Activator.CreateInstance(t, _option);
+            }
+
             configurations = _option.getConfigurations();
         }
 
