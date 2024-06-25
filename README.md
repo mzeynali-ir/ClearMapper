@@ -3,7 +3,9 @@ ClearMapper :)
 how to use?
 
 step 1:
-creat
+crete two classes with blow names.
+FirstClass
+SecondClass
 ```C#
 public class FirstClass
 {
@@ -19,10 +21,10 @@ public class SecondClass
 ```
 
 step 2:
-
+create Profile class For configure of map for ClearMapper
 ```C#
 
-public class Profile1 : ClearMapperProfile
+public class Profile : ClearMapperProfile
 {
     public Profile1(ClearMapperOption option) : base(option)
     {
@@ -45,7 +47,8 @@ public class Profile1 : ClearMapperProfile
 
 
 step 2:
-
+create insatance of CLearMapper of inject it from IOC.
+and call Map for map my class to another class.
 ```C#
 
             var mapper = new ClearMapper();
