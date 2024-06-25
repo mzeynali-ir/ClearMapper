@@ -11,16 +11,16 @@ namespace ClearMapperLibrary
             switch (serviceLifetime)
             {
                 case ServiceLifetime.Singleton:
-                    services.AddSingleton<ClearMapper>(i => new ClearMapper(option));
+                    services.AddSingleton<IClearMapper>(i => new ClearMapper(option));
                     break;
 
 
                 case ServiceLifetime.Scoped:
-                    services.AddScoped<ClearMapper>(i => new ClearMapper(option));
+                    services.AddScoped<IClearMapper>(i => new ClearMapper(option));
                     break;
 
                 case ServiceLifetime.Transient:
-                    services.AddTransient<ClearMapper>(i => new ClearMapper(option));
+                    services.AddTransient<IClearMapper>(i => new ClearMapper(option));
                     break;
             }
 

@@ -5,7 +5,7 @@ using System.Linq;
 namespace ClearMapperLibrary
 {
 
-    public sealed partial class ClearMapper
+    public sealed partial class ClearMapper: IClearMapper
     {
 
         private readonly ClearMapperOption _option = new ClearMapperOption();
