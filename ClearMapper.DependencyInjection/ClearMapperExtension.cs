@@ -5,7 +5,10 @@ namespace ClearMapperLibrary
 {
     public static class ClearMapperExtension
     {
-        public static IServiceCollection UseClearMapper(this IServiceCollection services, Action<ClearMapperOption> option, ServiceLifetime? serviceLifetime = ServiceLifetime.Scoped)
+        public static IServiceCollection UseClearMapper(
+            this IServiceCollection services,
+            Action<ClearMapperOption> option,
+            ServiceLifetime? serviceLifetime = ServiceLifetime.Scoped)
         {
 
             switch (serviceLifetime)
