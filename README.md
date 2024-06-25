@@ -74,12 +74,8 @@ and call Map for map my class to another class.
 
 ```
 
-step 5:
-SMILE :)
 
-bye
-
-how to inject in program.cs:
+## how to inject in program.cs:
 install 'ClearMapper.DependencyInjection' from NUGET.
 and write below code in program.cs
 ```c#
@@ -87,4 +83,7 @@ and write below code in program.cs
 builder.Services.UseClearMapper()
 
 ```
+
+dont forget to share ClearMapper with your friends.
+thanks :)
 
