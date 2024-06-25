@@ -4,6 +4,7 @@ using System.Linq;
 
 namespace CleverMapperLibrary
 {
+
     public sealed partial class CleverMapper
     {
 
