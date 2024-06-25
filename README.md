@@ -84,6 +84,17 @@ builder.Services.UseClearMapper()
 
 ```
 
+and inject IClearMapper in your classes like this:
+```C#
+
+public class MyClass{
+public MyClass(IClearMapper mapper){
+
+}
+}
+
+```
+
 dont forget to share ClearMapper with your friends.
 thanks :)
 
