@@ -64,8 +64,9 @@ var firstClass = new FirstClass()
 var listOfFistClass = new List<FirstClass>();
 listOfFistClass.Add(firstClass);
 
-        //map list of FirstClass to list of SecondClass
-        var listOfSecondClass = mapper.Map<FirstClass, SecondClass>(listOfFistClass);
+
+//map list of FirstClass to list of SecondClass
+var listOfSecondClass = mapper.Map<FirstClass, SecondClass>(listOfFistClass);
 
 //map list of FirstClass to list of ThirdClass
 var listOfThirdClass = mapper.Map<FirstClass, ThirdClass>(listOfFistClass);
