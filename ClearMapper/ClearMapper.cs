@@ -2,16 +2,16 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace CleverMapperLibrary
+namespace ClearMapperLibrary
 {
 
-    public sealed partial class CleverMapper
+    public sealed partial class ClearMapper
     {
 
-        private readonly CleverMapperOption _option = new CleverMapperOption();
+        private readonly ClearMapperOption _option = new ClearMapperOption();
         private List<Delegate> configurations;
 
-        public CleverMapper(Action<CleverMapperOption> op)
+        public ClearMapper(Action<ClearMapperOption> op)
         {
             op.Invoke(_option);
             configurations = _option.getConfigurations();
@@ -32,7 +32,7 @@ namespace CleverMapperLibrary
                 var finalFunc = funcs.First();
                 var config = finalFunc as Func<TSource, TDestination>;
                 if (config is null)
-                    throw new Exception($"Happened uncontrol exception in {nameof(CleverMapper)} library, call 911 :)");
+                    throw new Exception($"Happened uncontrol exception in {nameof(ClearMapper)} library, call 911 :)");
 
                 return config;
             }
@@ -48,13 +48,13 @@ namespace CleverMapperLibrary
                     $"Not found configuration of map from '{typeof(TSource).Name}' to '{typeof(TDestination).Name}'"
                     );
 
-            throw new Exception($"Happened uncontrol exception in {nameof(CleverMapper)} library, call 911 :)");
+            throw new Exception($"Happened uncontrol exception in {nameof(ClearMapper)} library, call 911 :)");
         }
 
     }
 
 
-    public partial class CleverMapper
+    public partial class ClearMapper
     {
 
         public IEnumerable<TDestination> Map<TSource, TDestination>(IEnumerable<TSource> source)

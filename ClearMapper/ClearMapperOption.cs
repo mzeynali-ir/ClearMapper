@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace CleverMapperLibrary
+namespace ClearMapperLibrary
 {
-    public sealed class CleverMapperOption
+    public sealed class ClearMapperOption
     {
         protected List<Delegate> configurations = new List<Delegate>();
 
