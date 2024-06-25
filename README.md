@@ -39,13 +39,6 @@ public class Profile : ClearMapperProfile
 {
     public Profile(ClearMapperOption option) : base(option)
     {
-
-        option.AddConfiguration<FirstClass, ThirdClass>(i => new ThirdClass()
-        {
-            ThirdClassID = i.FistClassID,
-            Name = i.Title,
-        });
-
         option.AddConfiguration<FirstClass, SecondClass>(i => new SecondClass()
         {
             SecondClassID = i.FistClassID,
