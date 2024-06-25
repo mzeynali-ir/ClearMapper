@@ -10,7 +10,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\CleverMapper\CleverMapper.csproj" />
+    <ProjectReference Include="..\ClearMapper\ClearMapper.csproj" />
   </ItemGroup>
 
 </Project>

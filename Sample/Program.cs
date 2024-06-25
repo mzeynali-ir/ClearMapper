@@ -1,4 +1,4 @@
-﻿using CleverMapperLibrary;
+﻿using ClearMapperLibrary;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +11,7 @@ namespace asdfasdf
         {
             Console.WriteLine("Hello World!");
 
-            var mapper = new CleverMapper(option =>
+            var mapper = new ClearMapperLibrary.ClearMapper(option =>
             {
                 option.AddConfiguration<FirstClass, SeccondClass>(i => new SeccondClass() { Id = i.Id });
 
