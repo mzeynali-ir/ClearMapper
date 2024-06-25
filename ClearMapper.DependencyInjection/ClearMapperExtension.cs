@@ -29,6 +29,30 @@ namespace ClearMapperLibrary
 
             return services;
         }
+
+        public static IServiceCollection UseClearMapper(
+            this IServiceCollection services,
+            ServiceLifetime? serviceLifetime = ServiceLifetime.Scoped)
+        {
+
+            switch (serviceLifetime)
+            {
+                case ServiceLifetime.Singleton:
+                    services.AddSingleton<IClearMapper>(i => new ClearMapper());
+                    break;
+
+
+                case ServiceLifetime.Scoped:
+                    services.AddScoped<IClearMapper>(i => new ClearMapper());
+                    break;
+
+                case ServiceLifetime.Transient:
+                    services.AddTransient<IClearMapper>(i => new ClearMapper());
+                    break;
+            }
+
+            return services;
+        }
     }
 
 }
