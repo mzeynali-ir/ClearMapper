@@ -4,7 +4,7 @@ ClearMapper is a package for map in c#.
 # feature:
 
 1. map from all of IEnumerable typr to another IEnumerable type with better performance and spped.
-2.map from IQueryable type to another IQueryable type with out roudtrip for database.
+2. map from IQueryable type to another IQueryable type with out roudtrip for database.
 3. map from any class to another class.
 4. and ...
 
