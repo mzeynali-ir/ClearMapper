@@ -100,6 +100,5 @@ public class MyClass
 }
 ```
 
-dont forget to share ClearMapper with your friends.
+don't forget to share ClearMapper with your friends.
 thanks :)
-
