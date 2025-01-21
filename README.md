@@ -88,12 +88,12 @@ builder.Services.UseClearMapper()
 
 ```
 
-and inject IClearMapper in your classes like this:
+and inject IMapper in your classes like this:
 ```C#
 
 public class MyClass
 {
-    public MyClass(IClearMapper mapper)
+    public MyClass(IMapper mapper)
     {
 
     }
