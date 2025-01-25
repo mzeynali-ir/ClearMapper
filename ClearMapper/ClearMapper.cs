@@ -16,9 +16,6 @@ namespace ClearMapperLibrary
             configurations = _option.getConfigurations();
         }
 
-        /// <summary>
-        /// scan from assembly
-        /// </summary>
         public ClearMapper()
         {
 
